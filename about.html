@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Perfect Fit Alterations</title>
+    <title>About - Precision Threads</title>
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/about.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -31,36 +32,37 @@
     </header>
 
     <main class="about-main">
-        <section class="about-hero">
-            <div class="about-container">
-                <h1>About Us</h1>
-                <div class="about-content">
-                    <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=800" alt="Our Master Tailor">
-                    </div>
-                    <div class="about-text">
-                        <h2>Expert Tailoring Services</h2>
-                        <h3>Craftsmanship & Precision</h3>
-                        <p>At Perfect Fit Alterations, we bring over two decades of expertise in professional clothing alterations and tailoring. Our master tailors combine traditional craftsmanship with modern techniques to deliver exceptional results for every garment.</p>
-                        
-                        <div class="experience-highlights">
-                            <div class="highlight">
-                                <span class="highlight-number">20+</span>
-                                <span class="highlight-text">Years Experience</span>
-                            </div>
-                            <div class="highlight">
-                                <span class="highlight-number">5k+</span>
-                                <span class="highlight-text">Satisfied Clients</span>
-                            </div>
-                            <div class="highlight">
-                                <span class="highlight-number">100%</span>
-                                <span class="highlight-text">Quality Guarantee</span>
-                            </div>
-                        </div>
+        <section class="hero-section">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Our Story</h1>
+                <p class="subtitle">Crafting Excellence Since 2004</p>
+            </div>
+        </section>
 
-                        <div class="about-cta">
-                            <a href="contact.html" class="cta-button">Book Appointment</a>
-                            <a href="services.html" class="cta-button secondary">Our Services</a>
+        <section class="about-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=800" alt="Master Tailor at Work">
+                    </div>
+                    <div class="about-content" data-aos="fade-left">
+                        <p class="lead-text">At Perfect Fit Alterations, we bring over two decades of expertise in professional clothing alterations and tailoring. Our master tailors combine traditional craftsmanship with modern techniques to deliver exceptional results for every garment.</p>
+                        
+                        <p>We believe that the perfect fit is not just about measurements – it's about understanding how each piece of clothing should complement your unique style and body type.</p>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-item" data-aos="fade-up">
+                                <span class="stat-number" data-count="20">0</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                                <span class="stat-number" data-count="5000">0</span>
+                                <span class="stat-label">Happy Clients</span>
+                            </div>
+                            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                                <span class="stat-number" data-count="100">0</span>
+                                <span class="stat-label">% Satisfaction</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -68,22 +70,43 @@
         </section>
 
         <section class="values-section">
-            <h2>Our Core Values</h2>
-            <div class="values-grid">
-                <div class="value-card">
-                    <i class="fas fa-star"></i>
-                    <h3>Excellence</h3>
-                    <p>We strive for perfection in every stitch, ensuring your garments receive the highest quality care.</p>
+            <div class="container">
+                <h2 data-aos="fade-up">Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card" data-aos="fade-up">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Quality</h3>
+                        <p>We never compromise on the quality of our work, using only the finest materials and techniques.</p>
+                    </div>
+                    <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-ruler"></i>
+                        </div>
+                        <h3>Precision</h3>
+                        <p>Every stitch is placed with purpose, ensuring perfect fit and finish every time.</p>
+                    </div>
+                    <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Service</h3>
+                        <p>We provide personalized attention to every client, ensuring complete satisfaction.</p>
+                    </div>
                 </div>
-                <div class="value-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Integrity</h3>
-                    <p>Honest service and transparent communication are the foundation of our business.</p>
-                </div>
-                <div class="value-card">
-                    <i class="fas fa-clock"></i>
-                    <h3>Reliability</h3>
-                    <p>Timely service and consistent quality you can count on, every time.</p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content" data-aos="fade-up">
+                    <h2>Ready to Experience the Perfect Fit?</h2>
+                    <p>Visit us today and let our expert tailors transform your wardrobe</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn btn-primary">Schedule Appointment</a>
+                        <a href="services.html" class="btn btn-secondary">View Services</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -91,24 +114,85 @@
 
     <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <h3>Perfect Fit Alterations</h3>
-                <p>123 Stitch Street<br>Fashion District, NY 10001</p>
-            </div>
-            <div class="footer-section">
-                <h3>Hours</h3>
-                <p>Mon-Fri: 9am - 6pm<br>Sat: 10am - 4pm<br>Sun: Closed</p>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Phone: (555) 123-4567<br>Email: info@perfectfit.com</p>
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <h3>Precision Threads</h3>
+                    <p>Where precision meets style</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="./index.html">Home</a></li>
+                            <li><a href="./services.html">Services</a></li>
+                            <li><a href="./about.html">About</a></li>
+                            <li><a href="./contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Hours</h4>
+                        <ul>
+                            <li>Mon-Fri: 9am - 6pm</li>
+                            <li>Sat: 10am - 4pm</li>
+                            <li>Sun: Closed</li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                            <li><i class="fas fa-envelope"></i> info@precisionthreads.com</li>
+                            <li><i class="fas fa-map-marker-alt"></i> 123 Stitch Street, Fashion District</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="footer-divider"></div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Perfect Fit Alterations. All rights reserved.</p>
+            <p>&copy; 2024 Precision Threads. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
         </div>
     </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        const stats = document.querySelectorAll('.stat-number');
+        stats.forEach(stat => {
+            const target = parseInt(stat.dataset.count);
+            let current = 0;
+            const increment = target / 50;
+            const updateCount = () => {
+                if(current < target) {
+                    current += increment;
+                    stat.textContent = Math.floor(current);
+                    setTimeout(updateCount, 40);
+                } else {
+                    stat.textContent = target;
+                }
+            }
+            const observer = new IntersectionObserver((entries) => {
+                if(entries[0].isIntersecting) {
+                    updateCount();
+                }
+            });
+            observer.observe(stat);
+        });
+
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('nav-links');
 
