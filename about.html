@@ -50,18 +50,24 @@
                         
                         <p>We believe that the perfect fit is not just about measurements – it's about understanding how each piece of clothing should complement your unique style and body type.</p>
                         
-                        <div class="stats-grid">
-                            <div class="stat-item" data-aos="fade-up">
-                                <span class="stat-number" data-count="20">0</span>
-                                <span class="stat-label">Years Experience</span>
-                            </div>
-                            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-                                <span class="stat-number" data-count="5000">0</span>
-                                <span class="stat-label">Happy Clients</span>
-                            </div>
-                            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-                                <span class="stat-number" data-count="100">0</span>
-                                <span class="stat-label">% Satisfaction</span>
+                        <div class="stats-section">
+                            <div class="stats-container">
+                                <div class="stat-card">
+                                    <div class="counter-number" data-target="15">0</div>
+                                    <div class="counter-label">Years Experience</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="counter-number" data-target="5000">0</div>
+                                    <div class="counter-label">Happy Clients</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="counter-number" data-target="99">0</div>
+                                    <div class="counter-label">% Satisfaction</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="counter-number" data-target="25">0</div>
+                                    <div class="counter-label">Expert Tailors</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -167,37 +173,90 @@
     <script>
         AOS.init({
             duration: 800,
+            easing: 'ease',
             once: true,
-            offset: 100
+            mirror: false
         });
-
-        const stats = document.querySelectorAll('.stat-number');
-        stats.forEach(stat => {
-            const target = parseInt(stat.dataset.count);
-            let current = 0;
-            const increment = target / 50;
-            const updateCount = () => {
-                if(current < target) {
-                    current += increment;
-                    stat.textContent = Math.floor(current);
-                    setTimeout(updateCount, 40);
-                } else {
-                    stat.textContent = target;
-                }
+        
+        // Direct mobile menu implementation for about page
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('nav-links');
+            
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    navLinks.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                    
+                    // Toggle menu icon
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('fa-bars')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                    
+                    // Add animation to nav links when menu is active
+                    const navItems = navLinks.querySelectorAll('li');
+                    if (navLinks.classList.contains('active')) {
+                        navItems.forEach((item, index) => {
+                            item.style.transitionDelay = `${0.1 + index * 0.1}s`;
+                        });
+                    } else {
+                        navItems.forEach(item => {
+                            item.style.transitionDelay = '0s';
+                        });
+                    }
+                    
+                    console.log('Hamburger clicked, menu active:', navLinks.classList.contains('active'));
+                });
             }
-            const observer = new IntersectionObserver((entries) => {
-                if(entries[0].isIntersecting) {
-                    updateCount();
-                }
-            });
-            observer.observe(stat);
         });
-
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('nav-links');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+    </script>
+    <script src="./js/main.js"></script>
+    <script>
+        // Counter animation for stats
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.counter-number');
+            const speed = 200; // The lower the slower
+            
+            // Function to animate counters
+            function animateCounters() {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const increment = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(function() {
+                            animateCounters();
+                        }, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                });
+            }
+            
+            // Start counter animation when the stats section is in view
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(statsSection);
+            }
         });
     </script>
 </body>

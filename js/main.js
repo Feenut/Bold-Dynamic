@@ -67,44 +67,61 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial check for elements in view
     handleScrollAnimation();
 
-    // Mobile menu functionality
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    // Mobile menu functionality - FIXED
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
     
     if (hamburger && navLinks) {
-        const menuIcon = hamburger.querySelector('i');
-        
-        hamburger.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
+        hamburger.addEventListener('click', function() {
             navLinks.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
             
             // Toggle menu icon
-            if (navLinks.classList.contains('active')) {
-                menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-times');
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
             } else {
-                menuIcon.classList.add('fa-bars');
-                menuIcon.classList.remove('fa-times');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+            
+            // Add animation to nav links when menu is active
+            const navItems = navLinks.querySelectorAll('li');
+            if (navLinks.classList.contains('active')) {
+                navItems.forEach((item, index) => {
+                    item.style.transitionDelay = `${0.1 + index * 0.1}s`;
+                });
+            } else {
+                navItems.forEach(item => {
+                    item.style.transitionDelay = '0s';
+                });
             }
         });
 
         // Close menu when clicking a link
-        const links = document.querySelectorAll('.nav-links a');
-        links.forEach(link => {
+        const menuLinks = navLinks.querySelectorAll('a');
+        menuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                menuIcon.classList.add('fa-bars');
-                menuIcon.classList.remove('fa-times');
+                document.body.classList.remove('menu-open');
+                const icon = hamburger.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
             });
         });
-
+        
         // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        document.addEventListener('click', function(event) {
+            const isClickInsideMenu = navLinks.contains(event.target);
+            const isClickOnHamburger = hamburger.contains(event.target);
+            
+            if (!isClickInsideMenu && !isClickOnHamburger && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
-                menuIcon.classList.add('fa-bars');
-                menuIcon.classList.remove('fa-times');
+                document.body.classList.remove('menu-open');
+                const icon = hamburger.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
             }
         });
     }

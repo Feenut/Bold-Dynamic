@@ -11,7 +11,7 @@
 
 /* Hero Section - Enhanced Gradients */
 .contact-hero {
-    height: 45vh;
+    height: 60vh;
     background: linear-gradient(
         135deg,
         #1a237e 0%,
@@ -24,8 +24,8 @@
     justify-content: center;
     text-align: center;
     overflow: hidden;
-    padding-top: 60px;
-    margin-bottom: 100px;
+    padding-top: 80px;
+    margin-bottom: 120px;
 }
 
 /* Enhanced gradient overlay */
@@ -63,23 +63,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
     max-width: 800px;
     padding: 0 2rem;
 }
 
 .section-tag {
     display: inline-block;
-    padding: 0.8rem 2rem;
+    padding: 1rem 2.5rem;
     background: linear-gradient(
         135deg,
         rgba(255, 255, 255, 0.2) 0%,
         rgba(255, 255, 255, 0.1) 100%
     );
     border-radius: 50px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     transform: translateY(20px);
@@ -88,7 +88,7 @@
 }
 
 .hero-content h1 {
-    font-size: 4rem;
+    font-size: 5.5rem;
     margin: 0.5rem 0;
     font-weight: 600;
     background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
@@ -102,7 +102,7 @@
 }
 
 .hero-content p {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s ease forwards 0.4s;
@@ -202,45 +202,78 @@
     height: 500px;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: var(--card-shadow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 #map {
     height: 100%;
     width: 100%;
+    border-radius: 20px;
 }
 
 .map-overlay {
     position: absolute;
     bottom: 30px;
     left: 30px;
-    background: var(--card-bg);
+    background: rgba(255, 255, 255, 0.95);
     padding: 1.5rem;
     border-radius: 15px;
-    box-shadow: var(--card-shadow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
+    max-width: 300px;
 }
 
 .map-overlay h3 {
-    color: var(--primary);
+    color: #1a237e;
     margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.map-overlay p {
+    color: #666;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.map-overlay i {
+    color: #00bcd4;
 }
 
 .directions-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, #1a237e 0%, #00bcd4 100%);
     color: white;
     padding: 0.8rem 1.5rem;
     border-radius: 50px;
     text-decoration: none;
     margin-top: 1rem;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .directions-btn:hover {
     transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.2);
+}
+
+/* Map Info Window Styling */
+.map-info-window {
+    padding: 0.5rem;
+}
+
+.map-info-window h3 {
+    color: #1a237e;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.map-info-window p {
+    color: #666;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
 }
 
 /* Form Styles */
@@ -358,26 +391,30 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
+
+    .hero-content h1 {
+        font-size: 4.5rem;
+    }
 }
 
 @media (max-width: 768px) {
     .contact-hero {
-        height: 40vh;
-        padding-top: 50px;
-        margin-bottom: 60px;
+        height: 50vh;
+        padding-top: 60px;
+        margin-bottom: 80px;
     }
 
     .hero-content h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 
     .hero-content p {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
     .section-tag {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
     }
 
     .quick-contact {
@@ -401,5 +438,312 @@
     .form-row {
         grid-template-columns: 1fr;
         gap: 0;
+    }
+
+    .map-container {
+        height: 400px;
+    }
+
+    .map-overlay {
+        left: 20px;
+        bottom: 20px;
+        padding: 1rem;
+        max-width: calc(100% - 40px);
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100vh !important;
+        background: rgba(26, 35, 126, 0.95) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 2rem !important;
+        z-index: 999 !important;
+    }
+
+    .nav-links.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .nav-links li {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-links a {
+        color: white !important;
+        font-size: 1.5rem !important;
+    }
+
+    /* Make hamburger visible above the menu */
+    .hamburger {
+        position: relative;
+        z-index: 1002 !important;
+    }
+
+    /* Logo should be visible above menu */
+    .logo {
+        position: relative;
+        z-index: 1002 !important;
+    }
+
+    /* Change hamburger and logo color when menu is open */
+    body.menu-open .hamburger i,
+    body.menu-open .logo {
+        color: white !important;
+    }
+
+    /* Ensure the body overflow is hidden when menu is open */
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+}
+
+/* Add these styles for the contact details section */
+.details-container {
+    background: var(--form-bg);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.details-wrapper {
+    max-width: 100%;
+}
+
+.details-block h2 {
+    color: #1a237e;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.details-block h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #1a237e 0%, #00bcd4 100%);
+    border-radius: 2px;
+}
+
+.location-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.info-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(0, 188, 212, 0.03);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    transform: translateX(10px);
+    background: rgba(0, 188, 212, 0.08);
+}
+
+.info-item i {
+    font-size: 1.8rem;
+    color: #00bcd4;
+    margin-top: 0.5rem;
+}
+
+.info-content h3 {
+    color: #1a237e;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.info-content p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.hours-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 2rem;
+    align-items: center;
+}
+
+.hours-grid span {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.hours-grid span:nth-child(even) {
+    color: #1a237e;
+    font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .details-container {
+        padding: 2rem;
+    }
+
+    .info-item {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.2rem;
+    }
+
+    .info-item i {
+        font-size: 1.5rem;
+        margin-top: 0;
+    }
+
+    .hours-grid {
+        gap: 0.3rem 1rem;
+    }
+}
+
+/* Add these styles for the hamburger menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 1.5rem;
+        z-index: 1001;
+    }
+
+    nav {
+        padding: 1rem;
+        position: relative;
+    }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: white;
+        text-align: center;
+        padding: 2rem;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.show {
+        opacity: 1;
+        visibility: visible;
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1.5rem 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.show li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: #333;
+        text-decoration: none;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: #00bcd4;
+    }
+
+    /* Ensure the logo stays visible */
+    .logo {
+        position: relative;
+        z-index: 1001;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        padding: 0.8rem;
+    }
+
+    .hamburger {
+        right: 0.8rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .nav-links a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    nav {
+        padding: 0.6rem;
+    }
+
+    .logo {
+        font-size: 0.9rem;
+    }
+
+    .hamburger {
+        font-size: 1.2rem;
     }
 } 
